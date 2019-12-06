@@ -2,61 +2,91 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
  */
 class Booking
 {
+    public const MINIMUM_NUMBER_OF_TICKETS = 1;
+
+    public const MAXIMUM_NUMBER_OF_TICKETS = 10;
+
+    public const TYPE_OF_TICKET_DAY = 0;
+
+    public const TYPE_OF_TICKET_HALF_DAY = 2;
+
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
+     * @Assert\Date(message="validator.date.message")
      * @ORM\Column(type="datetime")
      */
     private $date;
 
     /**
+     * @Assert\Email(groups={"stepOne"})
+     * @Assert\NotBlank(groups={"stepOne"})
+     * @Assert\NotNull(groups={"stepOne"})
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
+     * @Assert\Type("integer", groups={"stepOne"})
+     *
      * @ORM\Column(type="smallint")
      */
     private $typeOfTicket;
 
     /**
+     * @Assert\NotBlank(groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\NotNull(groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\Date(groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\GreaterThanOrEqual("today", groups={"stepOne"}, payload={"severity": "error"})
+     *
      * @ORM\Column(type="datetime")
      */
     private $visit;
 
     /**
+     * @Assert\NotBlank(groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\NotNull(groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\Type("integer", groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\GreaterThanOrEqual(Booking::MINIMUM_NUMBER_OF_TICKETS, groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\LessThanOrEqual(Booking::MAXIMUM_NUMBER_OF_TICKETS, groups={"stepOne"}, payload={"severity": "error"})
+     *
      * @ORM\Column(type="integer")
      */
     private $numberOfTickets;
 
     /**
+     * @Assert\Type("float", payload={"severity": "error"})
+     *
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $transactionId;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", orphanRemoval=true)
      */
     private $tickets;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $transactionId;
 
     public function __construct()
     {
@@ -68,12 +98,12 @@ class Booking
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(DateTimeInterface $date): self
     {
         $this->date = $date;
 
@@ -104,12 +134,12 @@ class Booking
         return $this;
     }
 
-    public function getVisit(): ?\DateTimeInterface
+    public function getVisit(): ?DateTimeInterface
     {
         return $this->visit;
     }
 
-    public function setVisit(\DateTimeInterface $visit): self
+    public function setVisit(DateTimeInterface $visit): self
     {
         $this->visit = $visit;
 
