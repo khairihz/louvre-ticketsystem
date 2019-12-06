@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Yasumi\Provider\AbstractProvider;
 use Yasumi\Yasumi;
 
-function carbon(?DateTimeInterface $date): Carbon
+function carbon(?DateTimeInterface $date = null): Carbon
 {
     if (null === $date) {
         return Carbon::now();
