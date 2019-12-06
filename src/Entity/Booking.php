@@ -35,37 +35,37 @@ class Booking
     private $date;
 
     /**
-     * @Assert\Email(groups={"stepOne"})
-     * @Assert\NotBlank(groups={"stepOne"})
-     * @Assert\NotNull(groups={"stepOne"})
+     * @Assert\Email(groups={"booking"})
+     * @Assert\NotBlank(groups={"booking"})
+     * @Assert\NotNull(groups={"booking"})
      *
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
-     * @Assert\Type("integer", groups={"stepOne"})
+     * @Assert\Type("integer", groups={"booking"})
      *
      * @ORM\Column(type="smallint")
      */
     private $typeOfTicket;
 
     /**
-     * @Assert\NotBlank(groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\NotNull(groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\Date(groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\GreaterThanOrEqual("today", groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\NotBlank(groups={"booking"}, payload={"severity": "error"})
+     * @Assert\NotNull(groups={"booking"}, payload={"severity": "error"})
+     * @Assert\Date(groups={"booking"}, payload={"severity": "error"})
+     * @Assert\GreaterThanOrEqual("today", groups={"booking"}, payload={"severity": "error"})
      *
      * @ORM\Column(type="datetime")
      */
     private $visit;
 
     /**
-     * @Assert\NotBlank(groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\NotNull(groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\Type("integer", groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\GreaterThanOrEqual(Booking::MINIMUM_NUMBER_OF_TICKETS, groups={"stepOne"}, payload={"severity": "error"})
-     * @Assert\LessThanOrEqual(Booking::MAXIMUM_NUMBER_OF_TICKETS, groups={"stepOne"}, payload={"severity": "error"})
+     * @Assert\NotBlank(groups={"booking"}, payload={"severity": "error"})
+     * @Assert\NotNull(groups={"booking"}, payload={"severity": "error"})
+     * @Assert\Type("integer", groups={"booking"}, payload={"severity": "error"})
+     * @Assert\GreaterThanOrEqual(Booking::MINIMUM_NUMBER_OF_TICKETS, groups={"booking"}, payload={"severity": "error"})
+     * @Assert\LessThanOrEqual(Booking::MAXIMUM_NUMBER_OF_TICKETS, groups={"booking"}, payload={"severity": "error"})
      *
      * @ORM\Column(type="integer")
      */
