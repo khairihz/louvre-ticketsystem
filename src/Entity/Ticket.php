@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TicketRepository")
@@ -18,11 +20,19 @@ class Ticket
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(groups={"reservation"}, payload={"severity": "error"})
+     * @Assert\NotNull(groups={"reservation"}, payload={"severity": "error"})
+     * @Assert\Type("string", groups={"reservation"}, payload={"severity": "error"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="datetime")
+     *
+     * @Assert\NotBlank(groups={"reservation"}, payload={"severity": "error"})
+     * @Assert\NotNull(groups={"reservation"}, payload={"severity": "error"})
+     * @Assert\Date(groups={"reservation"}, payload={"severity": "error"})
      */
     private $birthdate;
 
@@ -33,11 +43,15 @@ class Ticket
 
     /**
      * @ORM\Column(type="boolean")
+     *
+     * @Assert\Type("bool", groups={"reservation"}, payload={"severity": "error"})
      */
     private $reduceRate;
 
     /**
      * @ORM\Column(type="integer")
+     *
+     * @Assert\Type("integer", groups={"reservation"}, payload={"severity": "error"})
      */
     private $price;
 
@@ -64,12 +78,12 @@ class Ticket
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeInterface
+    public function getBirthdate(): ?DateTimeInterface
     {
         return $this->birthdate;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): self
+    public function setBirthdate(DateTimeInterface $birthdate): self
     {
         $this->birthdate = $birthdate;
 
