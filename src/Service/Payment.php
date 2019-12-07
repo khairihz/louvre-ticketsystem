@@ -6,7 +6,6 @@ namespace App\Service;
 
 use App\Entity\Booking;
 use Stripe\Charge;
-use Stripe\Error\Base;
 use Stripe\Stripe;
 use Stripe\Exception\ExceptionInterface;
 

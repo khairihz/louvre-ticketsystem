@@ -7,7 +7,6 @@ namespace App\Service;
 use Twig\Environment;
 use App\Entity\Booking;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Message;
 use Symfony\Component\Mailer\MailerInterface;
 
 final class Mailer
@@ -32,7 +31,7 @@ final class Mailer
             ->from('khairi.hezzi@gmail.com')
             ->to($booking->getEmail());
 
-        $body = $this->twig->render('Booking/bookingEmail.html.twig', [
+        $body = $this->twig->render('booking/booking-email.html.twig', [
             'booking' => $booking,
             'tickets' => $booking->getTickets(),
         ]);
