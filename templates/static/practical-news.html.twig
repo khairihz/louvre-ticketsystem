@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} — {{ 'practical_informations'|trans }}
+{% endblock %}
+
+{% block stepScale %}
+{% endblock %}
+
+{% block step %}
+    <h2 id="step-title">{{ 'practical_informations'|trans }}</h2>
+{% endblock %}
+
+
+{% block body %}
+<main class="container">
+    <div class="row personal-form-title" >
+        <h4>{{ 'practical_news.opening_hours'|trans }} </h4>
+    </div>
+    <div class="form-block">
+        <ul>
+            <li>{{ 'practical_news.monday'|trans }} : 9h00 — 18h00 </li>
+            <li>{{ 'practical_news.tuesday'|trans }} : {{ 'practical_news.closed.day'|trans }} </li>
+            <li>{{ 'practical_news.wednesday'|trans }} : 9h00 — 21h45 </li>
+            <li>{{ 'practical_news.thursday'|trans }} : 9h00 — 18h00 </li>
+            <li>{{ 'practical_news.friday'|trans }} : 9h00 — 21h45 </li>
+            <li>{{ 'practical_news.saturday'|trans }} : 9h00 — 18h00 </li>
+            <li>{{ 'practical_news.sunday'|trans }} : 9h00 — 18h00 </li>
+            <li>{{ 'practical_news.holidays'|trans }} : 9h00 — 18h00</li>
+        </ul>
+    </div>
+    <div class="row cgv-subtitle" >
+            <h5>{{ 'practical_news.closed.days'|trans }}</h5>
+    </div>
+    <div class="form-block">
+        <ul>
+            <li>{{ 'practical_news.new_year'|trans }}</li>
+            <li>{{ 'practical_news.may_first'|trans }}</li>
+            <li>{{ 'practical_news.november_first'|trans }}</li>
+            <li>{{ 'practical_news.christmas'|trans }}</li>
+        </ul>
+    </div>
+
+    <div class="row personal-form-title" >
+            <h4>{{ 'cgv.rates'|trans }}</h4>
+    </div>
+    <div class="form-block">
+        <ul>
+            <li>{{ 'practical_news.rates.adult'|trans }} : 16€ </li>
+            <li>{{ 'practical_news.rates.child'|trans }} : 8€ </li>
+            <li>{{ 'practical_news.rates.under_four'|trans }} : 0€ </li>
+            <li>{{ 'practical_news.rates.senior'|trans }} : 12€ </li>
+            <li>{{ 'ticket.reduce_rate'|trans }}* : 10€ </li>
+        </ul>
+    </div>
+    <div class="alert alert-warning">
+            *{{ 'practical_news.reduce_rate'|trans }}
+    </div>
+
+
+    <div class="row personal-form-title" >
+        <h4>{{ 'practical_news.way_to_go'|trans }}</h4>
+    </div>
+    <div class="form-block">
+        <ul>
+            <li>{{ 'practical_news.where.metro'|trans }}</li>
+            <li>{{ 'practical_news.where.bus'|trans }}</li>
+            <li>{{ 'practical_news.where.velib'|trans }}</li>
+            <li>{{ 'practical_news.where.car'|trans }}</li>
+            <li>{{ 'practical_news.where.boat'|trans }}</li>
+        </ul>
+    </div>
+    {% block returnButton %}
+        <div class="d-flex justify-content-center payment-button">
+            <a class="mx-auto" href="{{ path('homepage') }}"><button class="btn" id="return-button">{{ 'ticketing_return'|trans }}</button></a>
+        </div>
+    {% endblock %}
+</main>
+{% endblock  %}
+{% block news %}{% endblock %}

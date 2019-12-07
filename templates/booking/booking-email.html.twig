@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <header class="d-inline-block align-middle">
+        <img src="{{ louvreLogo }}" alt="logo du Louvre">
+        <h2>{{ 'head.main_title'|trans }}</h2>
+    </header>
+
+    <div style="margin: 1rem 1rem;">
+        <h3> {{ 'summary'|trans({ '%transactionId%': booking.transactionId }) }} {{ booking.date|localizeddate('medium', 'none') }}</h3>
+    </div>
+    <div>
+        <ul style="list-style: none;">
+            <li><strong>{{ 'booking.visitDate'|trans }}</strong> : {{ booking.visit|localizeddate('short', 'none') }}
+            </li>
+            <li><strong>{{ 'mail.booking.total_price'|trans }}</strong> : {{ booking.price }} €</li>
+            <li><strong>{{ 'booking.type_of_ticket'|trans }}</strong>
+                : {{ ((booking.typeofticket)?'booking.day' : 'booking.half_day')|trans }}</li>
+        </ul>
+    </div>
+    <div>
+        <table style="width: 50%; text-align: center; border-bottom-color: grey; border-bottom-style: solid; border-bottom-width: 2px;">
+            <thead>
+            <tr style="">
+                <th>#</th>
+                <th scope="col">{{ 'ticket.lastname'|trans }}</th>
+                <th scope="col">{{ 'ticket.firstname'|trans }}</th>
+                <th scope="col">{{ 'ticket.reduce_rate'|trans }}*</th>
+                <th scope="col">{{ 'ticket.unit_price'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ticket in booking.tickets %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ (ticket.reduceRate)? 'x' : 'not'|trans }}</td>
+                    <td>{{ ticket.price }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <p>*{{ 'practical_news.reduce_rate'|trans }}</p>
+
+    <div>
+        <p>{{ 'thanks'|trans }}</p>
+    </div>
+{% endblock %}

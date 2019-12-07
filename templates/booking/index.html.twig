@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - {{ 'step_title'|trans }} 1
+{% endblock %}
+
+{% block step %}
+    <h2 id="step-title">{{ 'step_title'|trans }} 1</h2>
+{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'booking/breadcrumb.html.twig' with{'step': 1 }only %}
+{% endblock %}
+
+{% block body %}
+    <div class="col-lg-8 col-md-9 col-sm-12 personal-form">
+        <main>
+            {{ form_start(form) }}
+            <div class="row personal-form-title">
+                <h4>1 - {{ 'booking.visitDate'|trans }}</h4>
+            </div>
+            <div class="form-block">
+
+                {{ form_widget(form.visitDate) }}
+                {{ form_errors(form.visitDate) }}
+            </div>
+
+            <div class="row personal-form-title">
+                <h4>2 - {{ 'tickets'|trans }}</h4>
+            </div>
+
+            <div class="form-block">
+                {{ form_row(form.typeOfTicket) }}
+                <p>
+                    {{ 'booking.day_schedule'|trans }} <br>
+                    {{ 'booking.half_day_schedule'|trans }}
+                </p>
+                {{ form_row(form.numberOfTickets) }}
+            </div>
+
+            <div class="row personal-form-title">
+                <h4>3- {{ 'email'|trans }}</h4>
+            </div>
+
+            <div class="form-block">
+                {{ form_row(form.email.first) }}
+                {{ form_row(form.email.second) }}
+                {{ form_errors(form.email) }}
+            </div>
+
+            <button class="btn mx-auto" type="submit" name="indexValidation">{{ 'submit.button'|trans }}</button>
+            {{ form_end(form) }}
+
+        </main>
+    </div>
+{% endblock %}
+

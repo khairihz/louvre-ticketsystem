@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} — {{ 'general_terms_of_sale'|trans }}
+{% endblock %}
+
+{% block stepScale %}
+{% endblock %}
+
+{% block step %}
+    <h2 id="step-title">{{ 'general_terms_of_sale.title'|trans }}</h2>
+{% endblock %}
+
+{% block body %}
+    <main class="personal-form">
+        <div class="row justify-content-center">
+            <div class="form-block">
+                <ul class="cgv">
+                    <li><a href="#1">Article 1 : {{ 'cgv.objet'|trans }} </a></li>
+                    <li><a href="#2">Article 2 : {{ 'cgv.application'|trans }} </a></li>
+                    <li><a href="#3">Article 3 : {{ 'cgv.tickets_presentation'|trans }} </a></li>
+                    <li><a href="#4">Article 4 : {{ 'cgv.utilisation_conditions'|trans }} </a></li>
+                    <li><a href="#5">Article 5 : {{ 'cgv.using_modalities'|trans }} </a></li>
+                    <li><a href="#6">Article 6 : {{ 'cgv.rates'|trans }} </a></li>
+                    <li><a href="#7">Article 7 : {{ 'cgv.payment_modalities'|trans }} </a></li>
+                    <li><a href="#8">Article 8 : {{ 'cgv.payment_security'|trans }} </a></li>
+                    <li><a href="#9">Article 9 : {{ 'cgv.personal_data_processing'|trans }} </a></li>
+                    <li><a href="#10">Article 10 : {{ 'cgv.cookies'|trans }} </a></li>
+                    <li><a href="#11">Article 11 : {{ 'cgv.refund_application'|trans }} </a></li>
+                    <li><a href="#12">Article 12 : {{ 'cgv.contesting_bank_debit'|trans }} </a></li>
+                    <li><a href="#13">Article 13 : {{ 'cgv.responsability'|trans }} </a></li>
+                    <li><a href="#14">Article 14 : {{ 'cgv.law'|trans }} </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row personal-form-title" >
+            <h4 id="1">1 — {{ 'cgv.objet'|trans }} </h4>
+        </div>
+        <div class="form-block">1.1 — {{ 'cgv.paragraph.first.one'|trans }}</div>
+        <div class="form-block">1.2 — {{ 'cgv.paragraph.first.two'|trans }}</div>
+        <div class="form-block">1.3 — {{ 'cgv.paragraph.first.three'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="2">2 — {{ 'cgv.application'|trans }} </h4>
+        </div>
+        <div class="form-block">2.1 — {{ 'cgv.paragraph.second.one'|trans }}</div>
+        <div class="form-block">2.2 — {{ 'cgv.paragraph.second.two'|trans }}</div>
+        <div class="form-block">2.3 — {{ 'cgv.paragraph.second.three'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4 id="3">3 — {{ 'cgv.tickets_presentation'|trans }} </h4>
+        </div>
+
+        <div class="form-block">3.1 — {{ 'cgv.paragraph.third.one'|trans }}</div>
+        <div class="form-block">3.2 — {{ 'cgv.paragraph.third.two'|trans }}</div>
+        <div class="form-block">3.3 — {{ 'cgv.paragraph.third.three'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4 id="4">4 — {{ 'cgv.utilisation_conditions'|trans }} </h4>
+        </div>
+        <div class="row cgv-subtitle" >
+            <h5>4.1 — {{ 'cgv.tickets'|trans }}</h5>
+        </div>
+        <div class="form-block">4.1.1 — {{ 'cgv.paragraph.fourth.one.one'|trans }}</div>
+        <div class="form-block">4.1.2 — {{ 'cgv.paragraph.fourth.one.two'|trans }}</div>
+        <div class="form-block">4.1.3 — {{ 'cgv.paragraph.fourth.one.three'|trans }}</div>
+        <div class="form-block">4.1.4 — {{ 'cgv.paragraph.fourth.one.four'|trans }}</div>
+        <div class="form-block">4.1.5 — {{ 'cgv.paragraph.fourth.one.five'|trans }}</div>
+        <div class="form-block">4.1.6 — {{ 'cgv.paragraph.fourth.one.six'|trans }}</div>
+        <div class="form-block">4.1.7 — {{ 'cgv.paragraph.fourth.one.seven'|trans }}</div>
+        <div class="form-block">4.1.8 — {{ 'cgv.paragraph.fourth.one.eight'|trans }}</div>
+        <div class="form-block">4.1.9 — {{ 'cgv.paragraph.fourth.one.nine'|trans }}</div>
+        <div class="form-block">4.1.10 — {{ 'cgv.paragraph.fourth.one.ten'|trans }}</div>
+        <div class="row cgv-subtitle" >
+            <h5>4.2 — {{ 'cgv.security_measures'|trans }}</h5>
+        </div>
+        <div class="form-block">4.2.1 — {{ 'cgv.paragraph.fourth.two.one'|trans }}</div>
+        <div class="form-block">4.2.2 — {{ 'cgv.paragraph.fourth.two.two'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4 id="5">5 — {{ 'cgv.using_modalities'|trans }} </h4>
+        </div>
+        <div class="form-block">5.1 — {{ 'cgv.paragraph.fifth.one'|trans }}</div>
+        <div class="form-block">5.2 — {{ 'cgv.paragraph.fifth.two'|trans }}</div>
+        <div class="form-block">5.3 — {{ 'cgv.paragraph.fifth.three'|trans }}</div>
+        <div class="form-block">5.4 — {{ 'cgv.paragraph.fifth.four'|trans }}</div>
+        <div class="form-block">5.5 — {{ 'cgv.paragraph.fifth.five'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="6">6 — {{ 'cgv.rates'|trans }} </h4>
+        </div>
+        <div class="form-block">6.1 — {{ 'cgv.paragraph.sixth.one'|trans }}</div>
+        <div class="form-block">6.2 — {{ 'cgv.paragraph.sixth.two'|trans }}</div>
+        <div class="form-block">6.3 — {{ 'cgv.paragraph.sixth.three'|trans }}</div>
+        <div class="form-block">6.4 — {{ 'cgv.paragraph.sixth.four'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="7">7 — {{ 'cgv.payment_modalities'|trans }} </h4>
+        </div>
+
+        <div class="form-block">7.1 — {{ 'cgv.paragraph.seventh.one'|trans }}</div>
+        <div class="form-block">7.2 — {{ 'cgv.paragraph.seventh.two'|trans }}</div>
+        <div class="form-block">7.3 — {{ 'cgv.paragraph.seventh.three'|trans }}</div>
+        <div class="form-block">7.4 — {{ 'cgv.paragraph.seventh.four'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4 id="8">8 — {{ 'cgv.payment_security'|trans }} </h4>
+        </div>
+        <div class="form-block">8.1 — {{ 'cgv.paragraph.eighth.one'|trans }}</div>
+        <div class="form-block">8.2 — {{ 'cgv.paragraph.eighth.two'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="9">9 — {{ 'cgv.personal_data_processing'|trans }} </h4>
+        </div>
+        <div class="form-block">9.1 — {{ 'cgv.paragraph.ninth.one'|trans }}</div>
+        <div class="form-block">9.2 — {{ 'cgv.paragraph.ninth.two'|trans }}</div>
+        <div class="form-block">9.3 — {{ 'cgv.paragraph.ninth.three'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="10">10 — {{ 'cgv.cookies'|trans }}</h4>
+        </div>
+        <div class="form-block">10.1 — {{ 'cgv.paragraph.tenth.one'|trans }}</div>
+        <div class="form-block">10.2 — {{ 'cgv.paragraph.tenth.two'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="11">11 — {{ 'cgv.refund_application'|trans }} </h4>
+        </div>
+        <div class="form-block">11.1 — {{ 'cgv.paragraph.eleventh.one'|trans }}</div>
+        <div class="form-block">11.2 — {{ 'cgv.paragraph.eleventh.two'|trans }}</div>
+        <div class="form-block">11.3 — {{ 'cgv.paragraph.eleventh.three'|trans }}</div>
+        <div class="form-block">11.4 — {{ 'cgv.paragraph.eleventh.four'|trans }}</div>
+        <div class="form-block">11.5 — {{ 'cgv.paragraph.eleventh.five'|trans }}</div>
+        <div class="form-block">11.6 — {{ 'cgv.paragraph.eleventh.six'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="12">12 — {{ 'cgv.contesting_bank_debit'|trans }}</h4>
+        </div>
+        <div class="form-block">12.1 — {{ 'cgv.paragraph.twelfth.one'|trans }}</div>
+        <div class="form-block">12.2 — {{ 'cgv.paragraph.twelfth.two'|trans }}</div>
+
+
+        <div class="row personal-form-title" >
+            <h4 id="13">13 — {{ 'cgv.responsability'|trans }} </h4>
+        </div>
+        <div class="form-block">13.1 — {{ 'cgv.paragraph.thirteenth.one'|trans }}</div>
+        <div class="form-block">13.2 — {{ 'cgv.paragraph.thirteenth.two'|trans }}</div>
+        <div class="form-block">13.3 — {{ 'cgv.paragraph.thirteenth.three'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4 id="14">14 — {{ 'cgv.law'|trans }} </h4>
+        </div>
+        <div class="form-block">{{ 'cgv.paragraph.fourteenth'|trans }}</div>
+
+        {% block returnButton %}
+            <div class="d-flex justify-content-center payment-button">
+                <a class="mx-auto" href="{{ path('homepage') }}"><button class="btn" id="return-button">{{ 'ticketing_return'|trans }}</button></a>
+            </div>
+        {% endblock %}
+    </main>
+{% endblock %}
+
+{%  block news %}
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

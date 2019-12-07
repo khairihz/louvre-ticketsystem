@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{parent()}} — {{ 'legal_mentions.title'|trans }}
+{% endblock %}
+
+{% block stepScale %}
+{% endblock %}
+
+{% block step %}
+    <h2 id="step-title">{{ 'legal_mentions.title'|trans }}</h2>
+{% endblock %}
+
+
+{% block body %}
+    <main class="personal-form">
+        <div class="row personal-form-title" >
+            <h4 >{{ 'legal_mentions.editor'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.edit'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.host'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.hosting_company'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.editorial'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.editorial_news'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.personal_data'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.personal_data_edit'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.intellectual_property'|trans }}</h4>
+        </div>
+        <div class="form-block">1 — {{ 'legal_mentions.intellectual_property_edit.first'|trans }}</div>
+        <div class="form-block">2 — {{ 'legal_mentions.intellectual_property_edit.two'|trans }}</div>
+
+        <div class="row cgv-subtitle" >
+            <h5>{{ 'legal_mentions.intellectual_property_edit.content_pictures'|trans }}</h5>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.intellectual_property_edit.content_pictures_edit'|trans }}</div>
+        <div class="form-block">{{ 'legal_mentions.intellectual_property_edit.content_flavicon'|trans }}<a href="http://www.freepik.com" title="Freepik">Freepik</a> {{ 'from'|trans }} <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> {{ 'licensed_by'|trans }}<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div class="row cgv-subtitle" >
+            <h5>{{ 'legal_mentions.intellectual_property_edit.content_text'|trans }}</h5>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.intellectual_property_edit.content_text_edit'|trans }}</div>
+
+        <div class="form-block">3 — {{ 'legal_mentions.intellectual_property_edit.three'|trans }} </div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.public_data'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.public_data_edit'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.cookies'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.cookies_edit'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.hypertext_links'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.hypertext_links_edit'|trans }}</div>
+
+        <div class="row personal-form-title" >
+            <h4>{{ 'legal_mentions.liability'|trans }}</h4>
+        </div>
+        <div class="form-block">{{ 'legal_mentions.liability_edit'|trans }}</div>
+
+        {% block returnButton %}
+            <div class="d-flex justify-content-center payment-button">
+                <a class="mx-auto" href="{{ path('homepage') }}"><button class="btn" id="return-button">{{ 'ticketing_return'|trans }}</button></a>
+            </div>
+        {% endblock %}
+    </main>
+{% endblock %}
+{% block news %}{% endblock %}
