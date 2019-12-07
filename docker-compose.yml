@@ -2,9 +2,9 @@ version: '3.7'
 services:
   db:
     image: postgres:9.3
-    command: ["--default-authentication-plugin=mysql_native_password"]
+    ports:
+      - 5432:5432
     environment:
-      MYSQL_ROOT_PASSWORD: root
       POSTGRES_DB: louvre
       POSTGRES_USER: louvre
       POSTGRES_PASSWORD: louvre
@@ -13,6 +13,8 @@ services:
     build: .
     volumes:
       - ${PWD}:/var/www/louvre:cached
+    ports:
+      - 9001:9001
     links:
       - db
 

@@ -2,11 +2,11 @@ FROM php:7.3-fpm
 
 RUN apt-get update
 RUN apt-get upgrade
-RUN apt-get install -y curl git zip zlib1g-dev libzip-dev
+RUN apt-get install -y curl git zip zlib1g-dev libzip-dev libpq-dev
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo pdo_pgsql
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install calendar
@@ -42,7 +42,7 @@ RUN composer install -o --no-scripts --no-progress --no-suggest --apcu-autoloade
 
 ENV APP_ENV "prod"
 ENV APP_SECRET "7f4fb6a4ee2d5e20afb3e0e859b9248d"
-ENV DATABASE_URL "postgres://louvre:louvre@db:5432/louvre?serverVersion=8.0"
+ENV DATABASE_URL "postgres://louvre:louvre@db:5432/louvre"
 ENV MAILER_DSN "gmail://USERNAME:PASSWORD@default"
 ENV STRIPE_PRIVATE_KEY "xxxx"
 ENV STRIPE_PUBLIC_KEY "xxxx"
