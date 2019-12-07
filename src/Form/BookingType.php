@@ -24,7 +24,6 @@ final class BookingType extends AbstractType
             ->add('visit', DateType::class, [
                 'widget' => 'single_text',
                 'label' => 'booking.visit',
-                'format' => 'dd/MM/yyyy',
                 'required' => true,
             ])
             ->add('typeOfTicket', ChoiceType::class, [
