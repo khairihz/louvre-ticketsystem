@@ -42,12 +42,10 @@ RUN composer install -o --no-scripts --no-progress --no-suggest --apcu-autoloade
 
 ENV APP_ENV "prod"
 ENV APP_SECRET "7f4fb6a4ee2d5e20afb3e0e859b9248d"
-ENV DATABASE_URL "mysql://louvre:louvre@db:3306/louvre?serverVersion=8.0"
+ENV DATABASE_URL "postgres://louvre:louvre@db:5432/louvre?serverVersion=8.0"
 ENV MAILER_DSN "gmail://USERNAME:PASSWORD@default"
 ENV STRIPE_PRIVATE_KEY "xxxx"
 ENV STRIPE_PUBLIC_KEY "xxxx"
-
-RUN php bin/console doctrine:migrations:execute --no-interaction
 
 CMD ["php-fpm", "-F"]
 
