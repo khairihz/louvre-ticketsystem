@@ -6,10 +6,15 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Validator\Constraints as Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ *
+ * @Validation\TicketsLimit(groups={"booking"})
+ * @Validation\TooLateForToday(groups={"booking"}, payload={"severity"="error"})
+ * @Validation\HalfDay(groups={"booking"}, payload={"severity"="error"})
  */
 class Booking
 {
@@ -54,7 +59,10 @@ class Booking
      * @Assert\NotBlank(groups={"booking"}, payload={"severity": "error"})
      * @Assert\NotNull(groups={"booking"}, payload={"severity": "error"})
      * @Assert\Date(groups={"booking"}, payload={"severity": "error"})
-     * @Assert\GreaterThanOrEqual("today", groups={"booking"}, payload={"severity": "error"})
+     *
+     * @Validation\NotTuesday(groups={"booking"}, payload={"severity"="error"})
+     * @Validation\NotSunday(groups={"booking"}, payload={"severity"="error"})
+     * @Validation\NotHolidays(groups={"booking"}, payload={"severity"="error"})
      *
      * @ORM\Column(type="datetime")
      */
