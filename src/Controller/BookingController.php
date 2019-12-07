@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * Class BookingController.
+ * @Route("/{_locale}", requirements={"_locale": "fr|en"})
  */
 class BookingController extends AbstractController
 {
