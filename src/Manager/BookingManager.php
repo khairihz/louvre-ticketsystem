@@ -120,7 +120,7 @@ class BookingManager
     {
         $booking = $this->session->get('booking');
 
-        if (null !== $booking) {
+        if (null === $booking) {
             throw new NoBookingFoundException('No booking found.');
         }
 
