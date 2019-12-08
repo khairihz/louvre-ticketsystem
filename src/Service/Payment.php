@@ -7,18 +7,26 @@ namespace App\Service;
 use App\Entity\Booking;
 use Stripe\Charge;
 use Stripe\Stripe;
+use App\Stripe\StripeLogger;
 use Stripe\Exception\ExceptionInterface;
+use App\Exception\PaymentFailureException;
 
 final class Payment
 {
     private $secret;
+    private $logger;
 
-    public function __construct(string $secret)
+    public function __construct(string $secret, StripeLogger $logger)
     {
         $this->secret = $secret;
+        $this->logger = $logger;
+        Stripe::setLogger($logger);
     }
 
-    public function process(Booking $booking, string $token): ?string
+    /**
+     * @throws PaymentFailureException
+     */
+    public function process(Booking $booking, string $token): string
     {
         Stripe::setApiKey($this->secret);
 
@@ -31,16 +39,14 @@ final class Payment
                 'description' => 'Billetterie du Louvre',
             ]);
 
-            return $charge['id'];
-        } catch (ExceptionInterface $e) {
-            /**
-             * Payment failure due to either invalid bank details, fraud,
-             * SCA ( strong customer authentication ) requirement ... etc.
-             *
-             * probably should be handled in a nicer way.
-             */
+            if ($charge->paid || $charge->captured) {
+                return $charge->id;
+            }
 
-            return null;
+            throw new PaymentFailureException($charge->failure_message, $charge->failure_code);
+        } catch (ExceptionInterface $e) {
+            $this->logger->error(sprintf('Unable to process payment : %s', $e->getMessage()), ['exception' => $e, 'booking' => $booking]);
+            throw new PaymentFailureException('Unable to process payment');
         }
     }
 }

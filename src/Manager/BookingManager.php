@@ -85,6 +85,7 @@ class BookingManager
         $tickets = $booking->getTickets();
         $totalPrice = 0;
 
+        /** @var Ticket $ticket */
         foreach ($tickets as $ticket) {
             $age = $this->age->calculate($booking->getVisit(), $ticket->getBirthdate());
             $ticket->setAge($age);
@@ -98,19 +99,15 @@ class BookingManager
         $booking->setPrice($totalPrice);
     }
 
-    public function charge(Request $request, Booking $booking): ?string
+    public function charge(Request $request, Booking $booking): void
     {
-        $transactionId = $this->payment->process($booking, $request->request->get('stripeToken'));
+        $transactionId = $this->payment->process($booking, $request->request->get('stripe-token'));
 
-        if (null !== $transactionId) {
-            $booking->setTransactionId($transactionId);
-            $this->em->persist($booking);
-            $this->em->flush();
+        $booking->setTransactionId($transactionId);
+        $this->em->persist($booking);
+        $this->em->flush();
 
-            $this->mailer->send($booking);
-        }
-
-        return $transactionId;
+        $this->mailer->send($booking);
     }
 
     /**

@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Form\BookingType;
 use App\Form\TicketsType;
 use App\Manager\BookingManager;
+use App\Exception\PaymentFailureException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -77,26 +78,20 @@ class BookingController extends AbstractController
         $booking = $bookingManager->getBooking();
 
         if (Request::METHOD_POST === $request->getMethod()) {
-            $transaction = $bookingManager->charge($request, $booking);
-
-            /** @var \Symfony\Contracts\Translation\TranslatorInterface $translator */
-            $translator = $this->get('translator');
-
-            if (null !== $transaction) {
-                $this->addFlash(
-                    'success',
-                    $translator->trans('payment_message.success', ['%email%' => $booking->getEmail()])
-                );
+            try {
+                $bookingManager->charge($request, $booking);
+                $translator = $this->get('translator');
+                $this->addFlash('success', $translator->trans('payment_message.success', ['%email%' => $booking->getEmail()]));
 
                 return $this->redirectToRoute('final_summary');
+            } catch (PaymentFailureException $e) {
+                $this->addFlash('error', $e->getMessage());
             }
-
-            $this->addFlash('error', $translator->trans('payment.message.error'));
         }
 
         return $this->render('booking/summary.html.twig', [
             'booking' => $booking,
-            'stripe_public_key' => $this->stripePublicKey
+            'stripe_public_key' => $this->stripePublicKey,
         ]);
     }
 
