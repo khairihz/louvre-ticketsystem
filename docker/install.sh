@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mkdir -p /var/www/louvre/var/logs
+mkdir -p /var/www/louvre/var/log
 mkdir -p /var/www/louvre/var/cache
 mkdir -p /var/www/louvre/var/sessions
 

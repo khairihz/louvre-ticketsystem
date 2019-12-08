@@ -28,7 +28,22 @@ ARG USER_UID=1000
 
 RUN usermod -u $USER_UID www-data
 
-ADD . /var/www/louvre
+ADD assets/           /var/www/louvre/assets
+ADD bin/              /var/www/louvre/bin
+ADD config/           /var/www/louvre/config
+ADD public/           /var/www/louvre/public
+ADD src/              /var/www/louvre/src
+ADD templates/        /var/www/louvre/templates
+ADD translations/     /var/www/louvre/translations
+ADD composer.json     /var/www/louvre
+ADD composer.lock     /var/www/louvre
+ADD package.json      /var/www/louvre
+ADD webpack.config.js /var/www/louvre
+ADD yarn.lock         /var/www/louvre
+ADD docker/build.sh   /var/www/louvre/bin/
+ADD docker/install.sh /var/www/louvre/bin/
+
+RUN echo '<?php return [];' >> /var/www/louvre/.env.php.local
 
 WORKDIR /var/www/louvre
 
@@ -39,8 +54,8 @@ ENV MAILER_DSN "gmail://USERNAME:PASSWORD@default"
 ENV STRIPE_PRIVATE_KEY "xxxx"
 ENV STRIPE_PUBLIC_KEY "xxxx"
 
-RUN docker/build.sh
-RUN docker/install.sh
+RUN bin/build.sh
+RUN bin/install.sh
 
 CMD ["php-fpm", "-F"]
 
