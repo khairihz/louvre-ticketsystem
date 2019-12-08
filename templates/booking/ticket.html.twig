@@ -27,9 +27,8 @@
                     <div class="ticket-title">
                         {{ 'ticket.unit'|trans }} n°{{ loop.index }}
                     </div>
-                    {{ form_row(ticket.lastName) }}
-                    {{ form_row(ticket.firstName) }}
-                    {{ form_row(ticket.birthDate, {'attr': {'class': 'input-style'}}) }}
+                    {{ form_row(ticket.name) }}
+                    {{ form_row(ticket.birthdate, {'attr': {'class': 'input-style'}}) }}
                     {{ form_row(ticket.country) }}
                     {{ form_row(ticket.reduceRate, {'attr': {'class': 'checkbox-style'}}) }}
                 </div>

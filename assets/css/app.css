@@ -1,5 +1,4 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 
 body {
     height: 100%;
@@ -37,7 +36,6 @@ h4, h5 {
 }
 
 #navBar-style {
-    height: 25px;
     padding-right: 0;
 }
 
@@ -276,18 +274,9 @@ footer hr {
     background-color: #222222;
 }
 
-#footer_first_part {
-    background-color: #4e4e4e;
-    min-height: 50px;
-}
-
-#footer_second_part {
-    min-height: 50px;
-}
-
-#footer_final {
+.footer > .row {
+    margin: 20px;
     color: #909090;
-    max-height: 30px;
 }
 
 /*<<<<<---------- static pages ---------->>>>>*/
