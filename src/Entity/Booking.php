@@ -56,9 +56,7 @@ class Booking
     private $typeOfTicket;
 
     /**
-     * @Assert\NotBlank(groups={"booking"}, payload={"severity": "error"})
      * @Assert\NotNull(groups={"booking"}, payload={"severity": "error"})
-     * @Assert\Date(groups={"booking"}, payload={"severity": "error"})
      *
      * @Validation\NotTuesday(groups={"booking"}, payload={"severity"="error"})
      * @Validation\NotSunday(groups={"booking"}, payload={"severity"="error"})
@@ -87,7 +85,7 @@ class Booking
     private $price;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="booking", orphanRemoval=true, cascade={"persist"})
      */
     private $tickets;
 
@@ -98,6 +96,7 @@ class Booking
 
     public function __construct()
     {
+        $this->date = carbon();
         $this->tickets = new ArrayCollection();
     }
 
