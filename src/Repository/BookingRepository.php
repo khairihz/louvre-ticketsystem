@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use DateTimeInterface;
 use App\Entity\Booking;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -19,32 +20,32 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
 
-    // /**
-    //  * @return Booking[] Returns an array of Booking objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getClientBooking(int $id): ?Booking
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->innerJoin('b.tickets', 't')
+            ->addSelect('t')
+            ->where('b.id = :id')
+            ->setParameter('id', $id)
         ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Booking
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
+        return $qb
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getSingleResult();
     }
-    */
+
+    public function getNumberOfTicketPerDay(DateTimeInterface $date): int
+    {
+        $qb = $this
+            ->createQueryBuilder('b')
+            ->select('SUM(b.numberOfTickets)')
+            ->where('b.visit = :visit')
+            ->setParameter('visit', $date)
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getSingleScalarResult() ?? 0;
+    }
 }
