@@ -27,7 +27,7 @@ final class Mailer
     public function send(Booking $booking): void
     {
         $mail = (new Email())
-            ->subject('Votre commande de billets d\'entrée pour le Louvre ')
+            ->subject('Votre commande de billets d\'entrée pour le Louvre')
             ->from('khairi.hezzi@gmail.com')
             ->to($booking->getEmail());
 

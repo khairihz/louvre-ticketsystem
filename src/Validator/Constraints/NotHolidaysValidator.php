@@ -11,12 +11,12 @@ use Symfony\Component\Validator\ConstraintValidator;
 final class NotHolidaysValidator extends ConstraintValidator
 {
     /**
-     * @param DateTime $visitdate
+     * @param DateTime $visit
      */
-    public function validate($visitdate, Constraint $constraint): void
+    public function validate($visit, Constraint $constraint): void
     {
-        foreach (holidays($visitdate) as $holiday) {
-            if ($holiday->format('Y-m-d') === $visitdate->format('Y-m-d')) {
+        foreach (holidays($visit) as $holiday) {
+            if ($holiday->format('Y-m-d') === $visit->format('Y-m-d')) {
                 $this->context->buildViolation($constraint->message)
                     ->addViolation();
             }

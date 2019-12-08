@@ -33,14 +33,14 @@ final class TicketsLimitValidator extends ConstraintValidator
     {
         $ticketsPerDay = $this->em
             ->getRepository(Booking::class)
-            ->getNumberOfTicketPerDay($booking->getVisitDate());
+            ->getNumberOfTicketPerDay($booking->getVisit());
 
         $ticketsLeft = self::MAX_TICKET_PER_DAY - $ticketsPerDay;
 
         if ($booking->getNumberOfTickets() >= $ticketsLeft) {
             $this->context->buildViolation($constraint->message)
                 ->atPath('numberOfTickets')
-                ->setParameter('{{ ticketsLeft }}', ($ticketsLeft > 0) ? $ticketsLeft : 0)
+                ->setParameter('{{ ticketsLeft }}', (string)(($ticketsLeft > 0) ? $ticketsLeft : 0))
                 ->addViolation();
         }
     }

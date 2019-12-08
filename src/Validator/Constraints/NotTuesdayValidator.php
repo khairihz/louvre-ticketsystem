@@ -11,11 +11,11 @@ use Symfony\Component\Validator\ConstraintValidator;
 final class NotTuesdayValidator extends ConstraintValidator
 {
     /**
-     * @param DateTime $visitdate
+     * @param DateTime $visit
      */
-    public function validate($visitdate, Constraint $constraint): void
+    public function validate($visit, Constraint $constraint): void
     {
-        if (carbon($visitdate)->isTuesday()) {
+        if (carbon($visit)->isTuesday()) {
             $this->context->buildViolation($constraint->message)
                 ->addViolation();
         }

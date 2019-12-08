@@ -22,7 +22,7 @@ final class TooLateForTodayValidator extends ConstraintValidator
      */
     public function validate($booking, Constraint $constraint): void
     {
-        if ($booking->getVisitdate()->format('H') >= static::CLOSE_TIME) {
+        if ($booking->getVisit()->format('H') >= static::CLOSE_TIME) {
             $this->context->buildViolation($constraint->message)
                 ->atPath('visitDate')
                 ->addViolation();
