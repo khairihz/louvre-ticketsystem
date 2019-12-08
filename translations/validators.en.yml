@@ -1,0 +1,9 @@
+validator:
+    not_more_thousand: "It is not possible to reserve anymore. There's {{ ticketsLeft }} tickets left for this day."
+    half_day: "After 14:00pm, only half-day tickets can be reserved"
+    not_holidays: "It's not possible to reserve a holiday"
+    not_tuesday: "It's not possible to reserve a tuesday"
+    not_sunday: "It's not possible to reserve a sunday"
+    too_late_for_today: "The museum is closed by now, it's not possible anymore to book of tickets"
+
+booking.email_error: The email fields must match.

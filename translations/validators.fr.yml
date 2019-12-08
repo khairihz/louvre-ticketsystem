@@ -1,0 +1,8 @@
+validator:
+    not_more_thousand: "Il n'est plus possible de réserver, le quota a été atteint. Il reste {{ ticketsLeft }} tickets disponibles."
+    half_day: "il est 14h00 passés, seuls les billets à la demi-journée sont disponibles."
+    not_holidays: "La réservation n'est pas disponible les jours fériés"
+    not_tuesday: "La réservation n'est pas disponible le mardi"
+    not_sunday: "La réservation n'est pas disponible le dimanche"
+    too_late_for_today: "Le musée est fermé pour aujourd'hui, il n'est plus possible de commander de billets"
+booking.email_error: Les emails saisis ne sont pas identiques.
