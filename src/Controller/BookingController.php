@@ -11,6 +11,7 @@ use App\Exception\PaymentFailureException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -73,14 +74,13 @@ class BookingController extends AbstractController
     /**
      * @Route(path="/summary", name="summary", methods={"GET", "POST"})
      */
-    public function summaryAction(Request $request, BookingManager $bookingManager): Response
+    public function summaryAction(Request $request, BookingManager $bookingManager, TranslatorInterface $translator): Response
     {
         $booking = $bookingManager->getBooking();
 
         if (Request::METHOD_POST === $request->getMethod()) {
             try {
                 $bookingManager->charge($request, $booking);
-                $translator = $this->get('translator');
                 $this->addFlash('success', $translator->trans('payment_message.success', ['%email%' => $booking->getEmail()]));
 
                 return $this->redirectToRoute('final_summary');
