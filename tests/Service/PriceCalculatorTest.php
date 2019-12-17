@@ -40,6 +40,7 @@ class PriceCalculatorTest extends TestCase
             [false, 11, Booking::TYPE_OF_TICKET_DAY, PriceCalculator::CHILD_PRICE],
             [false, 2, Booking::TYPE_OF_TICKET_HALF_DAY, PriceCalculator::BABY_PRICE / 2],
             [false, 2, Booking::TYPE_OF_TICKET_DAY, PriceCalculator::BABY_PRICE],
+            [false, 0, Booking::TYPE_OF_TICKET_DAY, PriceCalculator::BABY_PRICE]
         ];
     }
 }

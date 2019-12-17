@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace App\Service;
 
 use App\Entity\Booking;
 
-final class PriceCalculator
-{
+final class PriceCalculator {
     public const ADULT_PRICE = 16;
 
     public const BABY_PRICE = 0;
@@ -18,30 +17,22 @@ final class PriceCalculator
 
     public const REDUCE_PRICE = 10;
 
-    public function calculate(bool $reduceRate, int $age, int $typeOfTicket): int
-    {
+    public function calculate( bool $reduceRate, int $age, int $typeOfTicket ): int {
         $price = 0;
 
-        if ($reduceRate && $age >= 12) {
+        if ( $reduceRate && $age >= 12 ) {
             $price = self::REDUCE_PRICE;
-        } else {
-            switch ($age) {
-                case $age < 4:
-                    $price = self::BABY_PRICE;
-                    break;
-                case $age < 12:
-                    $price = self::CHILD_PRICE;
-                    break;
-                case $age < 60:
-                    $price = self::ADULT_PRICE;
-                    break;
-                case $age >= 60:
-                    $price = self::SENIOR_PRICE;
-                    break;
-            }
+        } else if ( $age < 4 ) {
+            $price = self::BABY_PRICE;
+        } else if ( $age < 12 ) {
+            $price = self::CHILD_PRICE;
+        } else if ( $age < 60 ) {
+            $price = self::ADULT_PRICE;
+        } else if ( $age >= 60 ) {
+            $price = self::SENIOR_PRICE;
         }
 
-        if (Booking::TYPE_OF_TICKET_HALF_DAY === $typeOfTicket) {
+        if ( Booking::TYPE_OF_TICKET_HALF_DAY === $typeOfTicket ) {
             $price /= 2;
         }
 
