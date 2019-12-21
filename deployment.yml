@@ -1,38 +1,80 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: louvre-ticketsystem-service
+  name: app-svc
   namespace: louvre-ticketsystem
 spec:
   selector:
-    app: louvre-ticketsystem
+    app: app
   type: ClusterIP
   ports:
     - protocol: TCP
       port: 9000
       targetPort: 9000
 ---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-svc
+  namespace: louvre-ticketsystem
+spec:
+  selector:
+    app: nginx
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: louvre-ticketsystem-deployment
+  name: app
   namespace: louvre-ticketsystem
   labels:
-    app: louvre-ticketsystem
+    app: app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: louvre-ticketsystem
+      app: app
   template:
     metadata:
       labels:
-        app: louvre-ticketsystem
+        app: app
     spec:
       imagePullSecrets:
         - name: pipeline-docker-registry
       containers:
-        - name: louvre-ticketsystem
+        - name: app
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           ports:
             - containerPort: 9000
+          env:
+            - APP_SECRET = 7f4fb6a4ee2d5e20afb3e0e859b9248d
+            - MAILER_DSN = null://USERNAME:PASSWORD@default
+            - STRIPE_PRIVATE_KEY = xxx
+            - STRIPE_PUBLIC_KEY = xxx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: louvre-ticketsystem
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.15.3-alpine
+          ports:
+            - containerPort: 80

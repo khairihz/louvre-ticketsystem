@@ -23,6 +23,13 @@ RUN apt-get update && \
 
 ARG USER_UID=1000
 
+ENV APP_ENV=prod
+ENV APP_SECRET=$APP_SECRET
+ENV DATABASE_URL=postgres://louvre:louvre@db:5432/louvre
+ENV MAILER_DSN=$MAILER_DSN
+ENV STRIPE_PRIVATE_KEY=$STRIPE_PRIVATE_KEY
+ENV STRIPE_PUBLIC_KEY=$STRIPE_PUBLIC_KEY
+
 RUN usermod -u $USER_UID www-data
 
 ADD ./  /var/www/louvre
