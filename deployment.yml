@@ -51,10 +51,14 @@ spec:
           ports:
             - containerPort: 9000
           env:
-            - APP_SECRET = 7f4fb6a4ee2d5e20afb3e0e859b9248d
-            - MAILER_DSN = null://USERNAME:PASSWORD@default
-            - STRIPE_PRIVATE_KEY = xxx
-            - STRIPE_PUBLIC_KEY = xxx
+            - name: APP_SECRET
+              value: replace-me
+            - name: MAILER_DSN
+              value: null://USERNAME:PASSWORD@default
+            - name: STRIPE_PRIVATE_KEY
+              value: xxx
+            - name: STRIPE_PUBLIC_KEY
+              value: xxx
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -74,7 +78,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - name: app
+        - name: nginx
           image: nginx:1.15.3-alpine
           ports:
             - containerPort: 80
