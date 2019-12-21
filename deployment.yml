@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: louvre-ticketsystem-service
-  namespace: docs
+  namespace: louvre-ticketsystem
 spec:
   selector:
     app: louvre-ticketsystem
@@ -16,7 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: louvre-ticketsystem-deployment
-  namespace: docs
+  namespace: louvre-ticketsystem
   labels:
     app: louvre-ticketsystem
 spec:
