@@ -1,11 +1,38 @@
-stages:
-  - name: Build
-    steps:
-      - publishImageConfig:
-          dockerfilePath: ./Dockerfile
-          buildContext: .
-          tag: louvre-ticketsystem:${CICD_EXECUTION_SEQUENCE}
-  - name: Deploy
-    steps:
-      - applyYamlConfig:
-          path: ./deployment.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: louvre-ticketsystem-service
+  namespace: docs
+spec:
+  selector:
+    app: louvre-ticketsystem
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: louvre-ticketsystem-deployment
+  namespace: docs
+  labels:
+    app: louvre-ticketsystem
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: louvre-ticketsystem
+  template:
+    metadata:
+      labels:
+        app: louvre-ticketsystem
+    spec:
+      imagePullSecrets:
+        - name: pipeline-docker-registry
+      containers:
+        - name: louvre-ticketsystem
+          image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          ports:
+            - containerPort: 9000
