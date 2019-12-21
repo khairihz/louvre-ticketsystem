@@ -17,6 +17,14 @@ services:
       - ${PWD}:/var/www/louvre:cached
     ports:
       - 9000:9000
+    environment:
+      - APP_ENV="prod"
+      APP_SECRET: "7f4fb6a4ee2d5e20afb3e0e859b9248d"
+      DATABASE_URL: "postgres://louvre:louvre@db:5432/louvre"
+      MAILER_DSN: "null://USERNAME:PASSWORD@default"
+      STRIPE_PRIVATE_KEY: "xxx"
+      STRIPE_PUBLIC_KEY: "xxx"
+
     networks:
       - database
       - default

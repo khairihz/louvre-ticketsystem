@@ -1,28 +1,25 @@
 FROM php:7.3-fpm
 
-RUN apt-get update
-RUN apt-get upgrade
-RUN apt-get install -y curl
-
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash
-
-RUN apt-get install -y git zip zlib1g-dev libzip-dev libpq-dev nodejs
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-
-RUN docker-php-ext-install pdo pdo_pgsql
-RUN docker-php-ext-install zip
-RUN docker-php-ext-install mbstring
-RUN docker-php-ext-install calendar
-
-RUN pecl install apcu
-
-RUN docker-php-ext-enable apcu
-
 COPY docker/php.ini /usr/local/etc/php/conf.d/
 COPY docker/php.ini /usr/local/etc/php/cli/conf.d/
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_9.x | bash && \
+    apt-get install -y git zip zlib1g-dev libzip-dev libpq-dev nodejs && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    curl -o- -L https://yarnpkg.com/install.sh | bash && \
+    docker-php-ext-install pdo pdo_pgsql && \
+    docker-php-ext-install zip && \
+    docker-php-ext-install mbstring && \
+    docker-php-ext-install calendar && \
+    pecl install apcu && \
+    docker-php-ext-enable apcu && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    curl -o- -L https://yarnpkg.com/install.sh | bash && \
+    ln -s ~/.yarn/bin/yarn /usr/local/bin/yarn
 
 ARG USER_UID=1000
 
@@ -30,19 +27,16 @@ RUN usermod -u $USER_UID www-data
 
 ADD ./  /var/www/louvre
 
-RUN echo '<?php return [];' >> /var/www/louvre/.env.php.local
-
 WORKDIR /var/www/louvre
 
-ENV APP_ENV "prod"
-ENV APP_SECRET "7f4fb6a4ee2d5e20afb3e0e859b9248d"
-ENV DATABASE_URL "postgres://louvre:louvre@db:5432/louvre"
-ENV MAILER_DSN "null://USERNAME:PASSWORD@default"
-ENV STRIPE_PRIVATE_KEY "xxx"
-ENV STRIPE_PUBLIC_KEY "xxx"
-
-RUN docker/build.sh
-RUN docker/install.sh
+RUN mkdir -p /var/www/louvre/var/log && \
+    mkdir -p /var/www/louvre/var/cache && \
+    mkdir -p /var/www/louvre/var/sessions && \
+    yarn install && \
+    echo '<?php return [];' >> /var/www/louvre/.env.php.local && \
+    composer install -o --no-scripts --no-progress --no-suggest --apcu-autoloader && \
+    yarn build && \
+    export PATH="$PATH:/usr/www/louvre/vendor/bin:/var/www/louvre/bin"
 
 CMD ["php-fpm", "-F"]
 
