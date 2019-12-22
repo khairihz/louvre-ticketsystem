@@ -56,7 +56,11 @@ class BookingController extends AbstractController
      */
     public function ticketAction(Request $request, BookingManager $bookingManager): Response
     {
-        $booking = $bookingManager->getBooking();
+        try {
+            $booking = $bookingManager->getCurrentBooking();
+        } catch (NoBookingFoundException $e) {
+            return $this->redirectToRoute('homepage');
+        }
 
         $form = $this->createForm(TicketsType::class, $booking);
         $form->handleRequest($request);
@@ -77,7 +81,11 @@ class BookingController extends AbstractController
      */
     public function summaryAction(Request $request, BookingManager $bookingManager, TranslatorInterface $translator): Response
     {
-        $booking = $bookingManager->getBooking();
+        try {
+            $booking = $bookingManager->getCurrentBooking();
+        } catch (NoBookingFoundException $e) {
+            return $this->redirectToRoute('homepage');
+        }
 
         if (Request::METHOD_POST === $request->getMethod()) {
             try {
@@ -99,7 +107,7 @@ class BookingController extends AbstractController
     /**
      * @Route("/final-summary", name="final_summary", methods={"GET", "POST"})
      */
-    public function finalSummaryAction(BookingManager $bookingManager): Response
+    public function finalSummaryAction(Request $request, BookingManager $bookingManager): Response
     {
         try {
             $booking = $bookingManager->getCurrentBooking();
@@ -108,7 +116,7 @@ class BookingController extends AbstractController
         }
 
         // Clear session.
-        $this->get('session')->clear();
+        $request->getSession()->clear();
 
         return $this->render('booking/final-summary.html.twig', [
             'booking' => $booking,
