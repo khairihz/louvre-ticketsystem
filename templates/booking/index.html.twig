@@ -18,7 +18,6 @@
 
         <div class="form-block">
             {{ form_widget(form.visit) }}
-            {{ form_errors(form.visit) }}
         </div>
 
         <div class="form-block">
@@ -35,9 +34,6 @@
                 {{ form_row(form.email.first) }}
                 {{ form_row(form.email.second) }}
             </div>
-            <p class="help is-danger">
-                {{ form_errors(form.email) }}
-            </p>
         </div>
 
         <input class="button" type="submit" value="{{ 'submit.button'|trans }}">
