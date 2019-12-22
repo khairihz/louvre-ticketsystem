@@ -8,75 +8,17 @@
 {% endblock %}
 
 {% block step %}
-    <h2 id="step-title">{{ 'legal_mentions.title'|trans }}</h2>
+    {{ 'legal_mentions'|trans }}
 {% endblock %}
 
+{% block container %}
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas pharetra convallis posuere morbi leo urna molestie at. Etiam non quam lacus suspendisse. Aliquet lectus proin nibh nisl condimentum id venenatis a. Egestas diam in arcu cursus euismod. Donec ac odio tempor orci dapibus ultrices in iaculis nunc. Risus pretium quam vulputate dignissim suspendisse in est. Sed odio morbi quis commodo odio aenean. Dolor purus non enim praesent elementum facilisis leo. Mi eget mauris pharetra et ultrices neque ornare. Et tortor consequat id porta nibh. Magna fermentum iaculis eu non diam phasellus vestibulum lorem. At auctor urna nunc id cursus metus aliquam eleifend mi. Ligula ullamcorper malesuada proin libero nunc consequat interdum.</p>
 
-{% block body %}
-    <main class="personal-form">
-        <div class="row personal-form-title" >
-            <h4 >{{ 'legal_mentions.editor'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.edit'|trans }}</div>
+        <p>Velit dignissim sodales ut eu sem. Risus in hendrerit gravida rutrum quisque non. Pretium fusce id velit ut tortor pretium viverra suspendisse potenti. Dapibus ultrices in iaculis nunc. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Sem viverra aliquet eget sit amet tellus cras adipiscing enim. In egestas erat imperdiet sed euismod nisi porta. Suspendisse sed nisi lacus sed viverra tellus in. Amet tellus cras adipiscing enim eu turpis egestas pretium. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Lorem ipsum dolor sit amet consectetur. Venenatis lectus magna fringilla urna porttitor rhoncus. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Vehicula ipsum a arcu cursus vitae congue mauris. Egestas sed sed risus pretium quam vulputate. Sit amet est placerat in egestas. Accumsan in nisl nisi scelerisque eu ultrices. Nulla facilisi etiam dignissim diam quis enim. Nunc scelerisque viverra mauris in. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis.</p>
 
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.host'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.hosting_company'|trans }}</div>
+        <p>Dui sapien eget mi proin sed libero enim. Nunc scelerisque viverra mauris in aliquam sem fringilla. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Sed nisi lacus sed viverra tellus in hac habitasse platea. Et tortor consequat id porta nibh venenatis cras. Posuere ac ut consequat semper. Diam in arcu cursus euismod quis. Enim sed faucibus turpis in eu. Sed elementum tempus egestas sed. Feugiat vivamus at augue eget arcu dictum varius. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Non arcu risus quis varius quam. Sed viverra tellus in hac. Urna nec tincidunt praesent semper.</p>
+    </div>
+{% endblock  %}
 
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.editorial'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.editorial_news'|trans }}</div>
-
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.personal_data'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.personal_data_edit'|trans }}</div>
-
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.intellectual_property'|trans }}</h4>
-        </div>
-        <div class="form-block">1 — {{ 'legal_mentions.intellectual_property_edit.first'|trans }}</div>
-        <div class="form-block">2 — {{ 'legal_mentions.intellectual_property_edit.two'|trans }}</div>
-
-        <div class="row cgv-subtitle" >
-            <h5>{{ 'legal_mentions.intellectual_property_edit.content_pictures'|trans }}</h5>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.intellectual_property_edit.content_pictures_edit'|trans }}</div>
-        <div class="form-block">{{ 'legal_mentions.intellectual_property_edit.content_flavicon'|trans }}<a href="http://www.freepik.com" title="Freepik">Freepik</a> {{ 'from'|trans }} <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> {{ 'licensed_by'|trans }}<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-        <div class="row cgv-subtitle" >
-            <h5>{{ 'legal_mentions.intellectual_property_edit.content_text'|trans }}</h5>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.intellectual_property_edit.content_text_edit'|trans }}</div>
-
-        <div class="form-block">3 — {{ 'legal_mentions.intellectual_property_edit.three'|trans }} </div>
-
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.public_data'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.public_data_edit'|trans }}</div>
-
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.cookies'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.cookies_edit'|trans }}</div>
-
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.hypertext_links'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.hypertext_links_edit'|trans }}</div>
-
-        <div class="row personal-form-title" >
-            <h4>{{ 'legal_mentions.liability'|trans }}</h4>
-        </div>
-        <div class="form-block">{{ 'legal_mentions.liability_edit'|trans }}</div>
-
-        {% block returnButton %}
-            <div class="d-flex justify-content-center payment-button">
-                <a class="mx-auto" href="{{ path('homepage') }}"><button class="btn" id="return-button">{{ 'ticketing_return'|trans }}</button></a>
-            </div>
-        {% endblock %}
-    </main>
-{% endblock %}
 {% block news %}{% endblock %}

@@ -17,11 +17,7 @@
 {% endblock %}
 
 {% block returnButton %}
-    <div class="d-flex justify-content-center payment-button">
-        <a class="mx-auto" href="{{ path('homepage') }}">
-            <button class="btn" id="return-button">{{ 'ticketing_return'|trans }}</button>
-        </a>
-    </div>
+    <a class="button" href="{{ path('homepage') }}">{{ 'ticketing_return'|trans }}</a>
 {% endblock %}
 
 {% block payment %}
