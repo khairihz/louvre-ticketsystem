@@ -1,80 +1,100 @@
-body.main.title: 'Official Ticketing Service'
+body.main.title: "Official Ticketing Service"
 booking:
-    day: Day
-    day_schedule: 'Day : from 9am to 6pm'
-    half_day: Half-day
-    half_day_schedule: 'Half-day : from 2pm to 6pm'
-    email: Your email
-    repeat_mail: Repeat your mail
-    number_of_tickets: 'Number Of Tickets '
-    type_of_ticket: 'Type of tickets '
-    summary: "Booking's summary"
-    total_price: 'Total price'
-    visitDate: 'Visit date'
+  day: Day
+  day_schedule: "Day : from 9am to 6pm"
+  half_day: Half-day
+  half_day_schedule: "Half-day : from 2pm to 6pm"
+  email: Your email
+  repeat_mail: Repeat your mail
+  number_of_tickets: "Number Of Tickets "
+  type_of_ticket: "Type of tickets "
+  summary: "Booking's summary"
+  total_price: "Total price"
+  visitDate: "Visit date"
 
 breadcrumb:
-    booking: Order infos
-    tickets: Tickets infos
-    payment: Payment
-    confirmation: Confirmation
+  booking: Order infos
+  tickets: Tickets infos
+  payment: Payment
+  confirmation: Confirmation
 
 email: Email
 
 english: en
 
 error:
-    not_found: Not found page
-    page_not_found: 'The page wasn''t found'
-    page_not_found_bis: 'Ooooops ! Leonardo didn''t finished to paint this page !!!'
-    server: server error
-    page_server: The server failed
-    page_server_bis: 'Leo !!! We have already told you to stop playing with the threads... !!!'
-    yarn: 'Please excuse us for this setback, all our technical team works to make the server in rails.'
-    yarn_picture: tangled threads
+  not_found: Not found page
+  page_not_found: "The page wasn't found"
+  page_not_found_bis: "Ooooops ! Leonardo didn't finished to paint this page !!!"
+  server: server error
+  page_server: The server failed
+  page_server_bis: "Leo !!! We have already told you to stop playing with the threads... !!!"
+  yarn: "Please excuse us for this setback, all our technical team works to make the server in rails."
+  yarn_picture: tangled threads
 
 french: fr
 from: from
-general_terms_of_sale: G.T.S
-general_terms_of_sale.title: 'Terms and Conditions'
+general_terms_of_sale: T.O.S
+general_terms_of_sale.title: "Terms and Conditions"
 head.main_title: "Louvre's ticketing"
 
 header:
-    label:
-        language: Language
-        museum: 'Louvre museum'
+  label:
+    language: Language
+    museum: "Louvre museum"
 
 home: Home
 
 licensed_by: is licensed by
 
-louvre_night: 'Louvre museum by night'
+louvre_night: "Louvre museum by night"
 
-mail.booking.total_price: 'Booking''s total price'
+mail.booking.total_price: "Booking's total price"
 
-mona: 'In the meantime, you can always come to see me '
+mona: "In the meantime, you can always come to see me "
 
 mona_button: here
 
 not: no
 
 payment:
-    stripe_title: 'Payment - Louvre Ticketing'
-    stripe_label: 'Pay with card'
+  stripe_title: "Payment - Louvre Ticketing"
+  stripe_label: "Pay with card"
 
 payment_message:
-    success: 'Well done, the payment was well made ! An e-mail was sent to the following address : %email%'
-    error: ' Something went wrong with the payment ! You might try it again with a different payment method'
-practical_informations: 'Pratical news'
+  success: "Well done, the payment was well made ! An e-mail was sent to the following address : %email%"
+  error: " Something went wrong with the payment ! You might try it again with a different payment method"
+practical_informations: "Pratical news"
+practical_news:
+  title: "Practical news"
+  opening_hours: "Opening hours"
+  schedule: Schedule
+  schedule_speech: The Louvre is open every day (except Tuesday) from 9 a.m. to 6 p.m. and night opening until 9:45 p.m. on Wednesdays and Fridays
+  closed:
+    day: closed
+    days: "Museum closed days"
+    days_closures: Closures
+    days_speech: May 1, November 1, December 25
+  rates:
+    title: Rates
+    adult: "Adult rate, from 12 years "
+    child: "Child rate, from 4 to 12 years "
+    under_four: "Baby rate, child under 4 years "
+    senior: "Senior rate, from 60 years "
+  reduce_rate: "The reduced rate is granted in certain conditions: students, employee of the museum, the serviceman, the department of the Ministry of Culture... A supporting document will be necessarily asked"
+
 step_title: Step
 submit.button: Validate
-summary: 'Summary of booking n°%transactionId% of'
+summary: "Summary of booking n°%transactionId% of"
 thanks: The museum thanks you for your order and whishes you a good visit
 ticket:
-    unit: Ticket
-    name: 'Name '
-    birth_date: 'Birth date '
-    country: Country
-    reduce_rate: 'Reduce rate '
-    unit_price: 'Unit price - €'
+  unit: Ticket
+  name: "Name "
+  birth_date: "Birth date "
+  country: Country
+  reduce_rate: "Reduce rate "
+  unit_price: "Unit price - €"
 tickets: Ticket(s)
-ticketing_return: 'Ticketing return'
+ticketing_return: "Ticketing return"
+
+legal_mentions: "Legal mentions"

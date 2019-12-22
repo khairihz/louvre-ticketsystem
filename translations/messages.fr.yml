@@ -1,65 +1,84 @@
-body.main.title: 'Billetterie officielle'
+body.main.title: "Billetterie officielle"
 booking:
-    day: Journée
-    day_schedule: 'Journée : 9h00 - 18h00 '
-    half_day: Demi-journée
-    half_day_schedule: "Demi-journée : 14h00 - 18h00"
-    email: Votre adresse mail
-    repeat_mail: Répétez votre adresse mail
-    number_of_tickets: Nombre de tickets
-    type_of_ticket: Type de tickets
-    summary: Récapitulatif de la commande
-    total_price: Prix total
-    visitDate: Date de visite
+  day: Journée
+  day_schedule: "Journée : 9h00 - 18h00 "
+  half_day: Demi-journée
+  half_day_schedule: "Demi-journée : 14h00 - 18h00"
+  email: Votre adresse mail
+  repeat_mail: Répétez votre adresse mail
+  number_of_tickets: Nombre de tickets
+  type_of_ticket: Type de tickets
+  summary: Récapitulatif de la commande
+  total_price: Prix total
+  visitDate: Date de visite
 breadcrumb:
-    booking: Info Commande
-    tickets: Info Tickets
-    payment: Paiement
-    confirmation: Confirmation
+  booking: Info Commande
+  tickets: Info Tickets
+  payment: Paiement
+  confirmation: Confirmation
 email: Email
 english: en
 error:
-    not_found: Page inexistante
-    page_not_found: 'La page n''a pas été trouvée'
-    page_not_found_bis: 'Oups ! Leonardo n''a pas terminé de peindre la page que vous demandez !!!'
-    server: erreur serveur
-    page_server: Erreur de serveur
-    page_server_bis: 'Leo !!! On t''a déjà dit de pas jouer avec les fils... !!!'
-    yarn: 'Veuillez nous excuser pour ce contretemps, toute notre équipe technique travaille afin de résoudre ce petit souci de serveur.'
-    yarn_picture: fils emmêlés
+  not_found: Page inexistante
+  page_not_found: "La page n'a pas été trouvée"
+  page_not_found_bis: "Oups ! Leonardo n'a pas terminé de peindre la page que vous demandez !!!"
+  server: erreur serveur
+  page_server: Erreur de serveur
+  page_server_bis: "Leo !!! On t'a déjà dit de pas jouer avec les fils... !!!"
+  yarn: "Veuillez nous excuser pour ce contretemps, toute notre équipe technique travaille afin de résoudre ce petit souci de serveur."
+  yarn_picture: fils emmêlés
 french: fr
 from: de
 general_terms_of_sale: C.G.V
-general_terms_of_sale.title: 'Conditions Générales de Vente'
+general_terms_of_sale.title: "Conditions Générales de Vente"
 head.main_title: Billetterie du Louvre
 header:
-    label:
-        language: Langue
-        museum: Le Louvre
+  label:
+    language: Langue
+    museum: Le Louvre
 home: Accueil
-licensed_by: ' font l''objet d''une licence '
+licensed_by: " font l'objet d'une licence "
 louvre_night: Le Louvre de nuit
 mail.booking.total_price: Prix total de la commande
-mona: 'En attendant, vous pouvez toujours venir me voir par  '
+mona: "En attendant, vous pouvez toujours venir me voir par  "
 mona_button: ici
 not: non
 payment:
-    stripe_title: 'Paiement - Billetterie du Louvre'
-    stripe_label: 'Paiement carte'
+  stripe_title: "Paiement - Billetterie du Louvre"
+  stripe_label: "Paiement carte"
 payment_message:
-    success: 'Le paiement a bien été effectué ! Un mail a été envoyé à l''adresse suivante : %email%'
-    error: ' Il y a eu un souci lors du paiement, il n''a pas été pris en compte ! Vous pouvez réessayer '
+  success: "Le paiement a bien été effectué ! Un mail a été envoyé à l'adresse suivante : %email%"
+  error: " Il y a eu un souci lors du paiement, il n'a pas été pris en compte ! Vous pouvez réessayer "
 practical_informations: Infos pratiques
+practical_news:
+  title: Informations pratiques
+  opening_hours: "Horaires d'ouverture"
+  schedule: Horaires
+  schedule_speech: Ouvert tous les jours de 9h à 18h sauf le mardi et nocturnes jusqu’à 21h45 le mercredi et le vendredi
+  closed:
+    day: fermé
+    days: Jours de fermeture du musée
+    days_closures: Fermetures
+    days_speech: Les 1er mai, 1er novembre et 25 décembre.
+  rates:
+    title: Tarifs
+    adult: "Tarif adulte, dès de 12 ans "
+    child: "Tarif junior, de 4 à 12 ans "
+    under_four: "Tarif enfant, moins de 4 ans "
+    senior: "Tarif senior, dès de 60 ans "
+  reduce_rate: "Le tarif réduit est accordé dans certaines conditions : étudiants, employé du musée, militaire, service du Ministère de la culture... Une pièce justificative sera obligatoirement demandée"
+
 step_title: Étape
 submit.button: Valider
-summary: 'Récapitulatif de la commande n°%transactionId% du'
+summary: "Récapitulatif de la commande n°%transactionId% du"
 thanks: Le musée vous remercie pour votre commande et vous souhaite une bonne visite
 ticket:
-    unit: Ticket
-    name: 'Nom et Prénom'
-    birth_date: 'Date de naissance '
-    country: Pays
-    reduce_rate: 'Tarif réduit '
-    unit_price: 'Prix unitaire - €'
+  unit: Ticket
+  name: "Nom et Prénom"
+  birth_date: "Date de naissance "
+  country: Pays
+  reduce_rate: "Tarif réduit "
+  unit_price: "Prix unitaire - €"
 tickets: Ticket(s)
-ticketing_return: 'Retour à la billetterie'
+ticketing_return: "Retour à la billetterie"
+legal_mentions: "Mentions légales"
