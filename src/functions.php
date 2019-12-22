@@ -17,5 +17,7 @@ function carbon(?DateTimeInterface $date = null): Carbon
 
 function holidays(?DateTimeInterface $date, string $region = 'France'): AbstractProvider
 {
-    return Yasumi::create($region, (int)carbon($date)->format('Y'));
+    $year = (int)carbon($date)->format('Y');
+    $year = $year < 1000 ? 1000 : $year;
+    return Yasumi::create($region, $year);
 }
