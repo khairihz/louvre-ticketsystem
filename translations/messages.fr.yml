@@ -79,6 +79,7 @@ ticket:
   country: Pays
   reduce_rate: "Tarif réduit "
   unit_price: "Prix unitaire - €"
+  office: "Billetterie officielle"
 tickets: Ticket(s)
 ticketing_return: "Retour à la billetterie"
 legal_mentions: "Mentions légales"

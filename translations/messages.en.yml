@@ -94,6 +94,7 @@ ticket:
   country: Country
   reduce_rate: "Reduce rate "
   unit_price: "Unit price - €"
+  office: "Official ticket office"
 tickets: Ticket(s)
 ticketing_return: "Ticketing return"
 
