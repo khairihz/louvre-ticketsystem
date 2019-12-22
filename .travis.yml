@@ -1,0 +1,27 @@
+language: php
+sudo: false
+
+cache:
+  yarn: true
+  directories:
+    - $HOME/.composer/cache/files
+    - ./bin/.phpunit
+
+env:
+  global:
+    - SYMFONY_PHPUNIT_DIR=./bin/.phpunit
+    - SYMFONY_DEPRECATIONS_HELPER=9
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.3
+    - php: 7.4
+
+install:
+  - php -r "echo ini_get('memory_limit').PHP_EOL;"
+  - composer $ACTION
+  - ./bin/phpunit install
+
+script:
+  - ./bin/phpunit
