@@ -8,6 +8,7 @@ use App\Form\BookingType;
 use App\Form\TicketsType;
 use App\Manager\BookingManager;
 use App\Exception\PaymentFailureException;
+use App\Exception\NoBookingFoundException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
