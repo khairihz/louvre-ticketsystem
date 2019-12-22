@@ -6,7 +6,6 @@
  */
 
 require('../css/app.css');
-require('bootstrap');
 
 import $ from 'jquery';
 import stripe from 'stripe-checkout';

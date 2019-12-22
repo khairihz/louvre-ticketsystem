@@ -1,14 +1,12 @@
-<ol class="breadcrumb">
-    {% if step >= 1 %}
-        <li class="breadcrumb-item col-md-3">{{ 'breadcrumb.booking'|trans }}</a></li>
-    {% endif %}
-    {% if step >= 2 %}
-        <li class="col-md-3">{{ 'breadcrumb.tickets'|trans }}</a></li>
-    {% endif %}
-    {% if step >= 3 %}
-        <li class="col-md-3">{{ 'breadcrumb.payment'|trans }}</a></li>
-    {% endif %}
-    {% if step >= 4 %}
-        <li class="col-md-3">{{ 'breadcrumb.confirmation'|trans }}</a></li>
-    {% endif %}
-</ol>
+{% if step == 1 %}
+    {{ 'breadcrumb.booking'|trans }}
+{% endif %}
+{% if step == 2 %}
+    {{ 'breadcrumb.tickets'|trans }}
+{% endif %}
+{% if step == 3 %}
+    {{ 'breadcrumb.payment'|trans }}
+{% endif %}
+{% if step >= 4 %}
+    {{ 'breadcrumb.confirmation'|trans }}
+{% endif %}

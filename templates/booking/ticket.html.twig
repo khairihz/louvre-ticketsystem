@@ -1,41 +1,35 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'form/fields.html.twig' %}
+{% form_theme form 'form/bulma.twig' %}
 
 {% block title %}
-    {{parent()}} - {{ 'step_title'|trans }} 2
+    {{ parent() }} - {{ 'step_title'|trans }} 2
 {% endblock %}
 
 {% block step %}
-    <h2 id="step-title">{{ 'step_title'|trans }} 2</h2>
+    {{ 'step_title'|trans }} 2
 {% endblock %}
 
 {% block breadcrumb %}
     {% include 'booking/breadcrumb.html.twig' with{'step': 2 }only %}
 {% endblock %}
 
-{% block body %}
-    <div class="col-lg-8 col-md-9 col-sm-12 personal-form">
-        <main>
-            <div class="row personal-form-title" >
-                <h4>{{ 'tickets'|trans }}</h4>
+{% block container %}
+    <div class="content">
+        <div class="row personal-form-title">
+            <h4>{{ 'tickets'|trans }}</h4>
+        </div>
+
+        {{ form_start(form) }}
+        {% for ticket in form.tickets %}
+            <div class="box">
+                {{ form_row(ticket.name) }}
+                {{ form_row(ticket.birthdate, {'attr': {'class': 'input-style'}}) }}
+                {{ form_row(ticket.country) }}
+                {{ form_row(ticket.reduceRate, {'attr': {'class': 'checkbox-style'}}) }}
             </div>
-
-            {{ form_start(form) }}
-            {% for ticket in form.tickets %}
-
-                <div class="form-block">
-                    <div class="ticket-title">
-                        {{ 'ticket.unit'|trans }} n°{{ loop.index }}
-                    </div>
-                    {{ form_row(ticket.name) }}
-                    {{ form_row(ticket.birthdate, {'attr': {'class': 'input-style'}}) }}
-                    {{ form_row(ticket.country) }}
-                    {{ form_row(ticket.reduceRate, {'attr': {'class': 'checkbox-style'}}) }}
-                </div>
-            {% endfor %}
-            <button class="btn mx-auto" type="submit" name="ticketValidation">{{ 'submit.button'|trans }}</button>
-            {{ form_end(form) }}
-        </main>
+        {% endfor %}
+        <input class="button" type="submit" value="{{ 'submit.button'|trans }}">
+        {{ form_end(form) }}
     </div>
 {% endblock %}
 
