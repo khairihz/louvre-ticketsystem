@@ -12,6 +12,10 @@ function carbon(?DateTimeInterface $date = null): Carbon
         return Carbon::now();
     }
 
+    if ($date instanceof Carbon) {
+        return clone $date;
+    }
+
     return Carbon::createFromFormat(DateTimeInterface::ATOM, $date->format(DateTimeInterface::ATOM));
 }
 
