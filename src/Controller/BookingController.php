@@ -104,7 +104,7 @@ class BookingController extends AbstractController
         try {
             $booking = $bookingManager->getCurrentBooking();
         } catch (NoBookingFoundException $e) {
-            return $this->redirectTo('homepage');
+            return $this->redirectToRoute('homepage');
         }
 
         // Clear session.
