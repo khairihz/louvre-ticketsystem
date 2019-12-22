@@ -100,7 +100,11 @@ class BookingController extends AbstractController
      */
     public function finalSummaryAction(BookingManager $bookingManager): Response
     {
-        $booking = $bookingManager->getCurrentBooking();
+        try {
+            $booking = $bookingManager->getCurrentBooking();
+        } catch (NoBookingFoundException $e) {
+            return $this->redirectTo('homepage');
+        }
 
         // Clear session.
         $this->get('session')->clear();
