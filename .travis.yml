@@ -20,8 +20,8 @@ matrix:
 
 install:
   - php -r "echo ini_get('memory_limit').PHP_EOL;"
-  - composer install
   - composer self-update 1.9.0
+  - composer install
   - ./bin/phpunit install
 
 script:
